@@ -21,8 +21,10 @@ public class Historic implements Serializable {
 		return list;
 	}
 
-	public void addToList(ExpressionC e) {
-		list.add(e);
+	public void addToList(String e, String r) {
+		String rred = r.substring(0, (int) Math.min(10,r.length()));
+		ExpressionC ex = new ExpressionC(e, rred);
+		list.add(ex);
 	}
 
 }

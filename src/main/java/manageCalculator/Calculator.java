@@ -45,6 +45,10 @@ public class Calculator implements Serializable {
 	public void setExpression(ExpressionC expression) {
 		this.expression = expression;
 	}
+	
+	public void displayExp(String e) {
+		expression.setExp(e);
+	}
 		
 	public boolean isScientific() {
 		return scientific;
@@ -265,7 +269,10 @@ public class Calculator implements Serializable {
 				if (l < 2) expression.setExp("0");
 				else expression.setExp(expression.getExp().substring(0, l-1));
 			}
-		else expression.setExp(expression.getExp()+add);
+		else {
+			String e = expression.getExp()+add;
+			expression.setExp(e);
+		}
 	}
 	
 	// actions for the buttons
@@ -330,7 +337,7 @@ public class Calculator implements Serializable {
 		case "result": add = result(); r = true; clean = true;
 			if (!error) {
 				expression.setResult(add);
-				hist.addToList(expression); updateStat();}
+				hist.addToList(expression.getExp(), expression.getResult()); updateStat();}
 			break;
 		}
 		
