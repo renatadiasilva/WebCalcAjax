@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Play Ajax</title>
+</h:head>
+<h:body>
+	
+<h:form>
+	
+<p:selectOneRadio value="#{meuBean.panel1}">
+ <f:selectItem itemLabel="Yes" itemValue="Show-Panel1" />
+ <f:selectItem itemLabel="No" itemValue="Hide-Panel1" />
+ <f:ajax render="payment-amount-panel" />
+</p:selectOneRadio>
+ 
+<h:panelGroup id="payment-amount-panel">
+ 
+<p:fieldset legend="Científica"
+ rendered="#{meuBean.panel1 == 'Show-Panel1'}">
+ 
+ blablabla
+  
+</p:fieldset>
+ 
+</h:panelGroup>
+
+</h:form>
+</h:body>
+</html>
