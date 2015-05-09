@@ -47,7 +47,9 @@ public class Calculator implements Serializable {
 	}
 	
 	public void displayExp(String e) {
-		expression.setExp(e);
+		String expold = expression.getExp();
+		if (expold.equals("0")) expression.setExp(e);
+		else expression.setExp(expold+e);
 	}
 		
 	public boolean isScientific() {
